@@ -1,2 +1,2 @@
 # CS246_HW
-CS246 HOMEWORK ANSWER
+CS246: Mining Massive Data Sets Solutions
