@@ -6,18 +6,6 @@ import org.apache.spark.{SparkConf, SparkContext}
 import scala.collection.immutable.{HashSet, Set}
 import scala.collection.Seq
 
-object  Test{
-  def main(args: Array[String]): Unit = {
-    val conf = new SparkConf().setAppName("FriendsRecomScala").setMaster("local")
-    val sc = new SparkContext(conf)
-
-    val  pairs=   sc.parallelize(Array(("a", 3), ("a", 1), ("b", 7), ("a", 5)))
-    val sets = pairs.keys
-    val s1= 1
-    println(s1/3)
-
-  }
-}
 
 object APriori {
   val s=100
@@ -51,7 +39,7 @@ object APriori {
       .map( x => (x.toSet,1))
       .reduceByKey(_+_)
       .filter(_._2 >=s).collectAsMap()
-    //计算confidence score
+    //calculate confidence score
     val  confTwo = resultTwo.flatMap( x =>
                                 x._1.toList.permutations
                                   .map{
